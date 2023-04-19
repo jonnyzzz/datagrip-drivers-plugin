@@ -1,5 +1,34 @@
 # datagrip-drivers-plugin
 
+The plugin allows to bundle database drivers as plugins for IntelliJ-based IDEs (DataGrip, IntelliJ IDEA, PyCharm, etc). 
+
+Steps to go: 
+ - rename that plugin (replace PLUGIN_ID with more specific name as suggested below)
+ - include drivers and XML files
+ - deploy plugin via Toolbox Enterprise to your developers
+
+Please each driver under the plugin as follows:
+```
+  PLUGIN_ID.zip
+  \
+   - PLUGIN_ID
+     \
+      - datagrip-driver-<any ID>
+        \ 
+         - driver.xml
+         - driver JAR files
+      - datagrop-datasource-<any ID>
+        \
+         - source.xml
+      - lib
+        \ 
+         - plugin internals   
+```
+
+
+## Building
+
+
 ![Build](https://github.com/jonnyzzz/datagrip-drivers-plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
