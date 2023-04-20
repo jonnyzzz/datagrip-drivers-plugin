@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+    <driver id="sqlite.acme.inc" name="SQLite (Acme INC)" driver-class="org.sqlite.JDBC" icon="AllIcons.Providers.Sqlite" dialect="SQLite">
+        <url-template name="default">jdbc:sqlite:{file::identifier.sqlite}?</url-template>
+        <artifact name="sqlite.jdbc.acme.inc" use="true" rolling="true"/>
+        <option name="auto-sync" value="true"/>
+        <jdbc-additional-properties>
+            <property name="auto-managed" value="true"/>
+        </jdbc-additional-properties>
+    </driver>
+    <driver id="h2.acme.inc" name="H2 (Acme INC)" driver-class="org.h2.Driver" icon="AllIcons.Providers.H2" dialect="H2">
+        <url-template name="Embedded" template="jdbc:h2:[file:]{path:h2_db_file}[;&lt;;,user={user:param},password={password:param},MV_STORE={MV_STORE:#param},{:identifier}={:param}&gt;]"/>
+        <artifact name="h2.jdbc.acme.inc" use="true" rolling="true"/>
+        <option name="auto-sync" value="true"/>
+        <jdbc-additional-properties>
+            <property name="auto-managed" value="true"/>
+        </jdbc-additional-properties>
+    </driver>
+</drivers>

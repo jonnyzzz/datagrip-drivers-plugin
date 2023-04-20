@@ -5,6 +5,21 @@
     <vendor>CHANGE_ME</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.database</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
+
+    <extensionPoints>
+        <extensionPoint qualifiedName="com.intellij.database.extraDataSources" beanClass="com.intellij.database.dataSource.ConfigUrlBean"/>
+    </extensionPoints>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <database.driversConfig config="config/extra-drivers.xml"/>
+        <database.artifactsConfig config="config/extra-artifacts.xml"/>
+        <database.extraDataSources config="config/extra-data-sources.xml"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.github.jonnyzzz.datagripdriversplugin.DataSourceRegistrar$Listener" topic="com.intellij.ide.AppLifecycleListener"/>
+    </applicationListeners>
 </idea-plugin>
