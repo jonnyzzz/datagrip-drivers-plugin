@@ -10,7 +10,7 @@ import com.intellij.openapi.progress.Task
 
 object ArtifactDownloader {
     fun ensureArtifactsPreset(drivers: List<DatabaseDriver>) {
-        DatabaseArtifactManager.getInstance().forceUpdate(null)
+        DatabaseArtifactManager.setArtifactsList(null)
         val downloads = collectDownloadTasks(drivers)
         if (downloads.isNotEmpty()) {
             object : Task.Backgroundable(null, "Downloading drivers", true) {
